@@ -79,13 +79,19 @@ set lazyredraw
 set noerrorbells
 
 " Fold based on indention levels
-set foldmethod=indent
+" set foldmethod=indent
 
 " Only fold up to three nested levels
-set foldnestmax=3
+" set foldnestmax=3
 
 " Display a confirmation dialog when closing an unsaved file
 set confirm
 
 " Increase the undo limit
 set history=1000
+
+" To be in the same spot when oppening a file 
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
