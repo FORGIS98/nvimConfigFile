@@ -1,4 +1,8 @@
 " Make it simple...at least until I know how to config nvim
+
+" My leader key
+let mapleader = "\<Space>"
+
 " Number of lines at the beginning and end of files checked for file-specific
 " vars
 set modelines=0
@@ -52,7 +56,7 @@ syntax enable
 set background=dark
 
 " Set colors if TERM have colors
-if $TERM == "xterm-256color"
+if $TERM == "termite"
   set t_Co=256
 endif
 
@@ -95,3 +99,23 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g'\"" | endif
 endif
+
+" TODO make this work
+" Fast window switching
+nnoremap <silent> <M-left> <C-w>j
+nnoremap <silent> <M-right> <C-w>ntile
+nnoremap <silent> <M-down> <C-w>k
+nnoremap <silent> <M-up> <C-w>l
+
+" Edit and reload init.vim quickly
+nnoremap <silent> <leader>ev :tabnew $MYVIMRC <bar> tcd %:h<cr>
+nnoremap <silent> <leader>sv :silent update $MYVIMRC <bar> source $MYVIMRC <bar>
+    \ echomsg "Nvim configvsuccessfully reloaded!"<cr>
+
+" Yank from current position to the end.
+nnoremap Y y$
+
+" Undo even after you close a file. 
+set undofile
+
+
