@@ -118,4 +118,20 @@ nnoremap Y y$
 " Undo even after you close a file. 
 set undofile
 
+" Set nvim config path and load your .vim scripts/files
+" https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/
+let g:nvim_config_root = stdpath('config')
+let g:config_file_list = ['pluginCall.vim']
+" \ 'XXXXXXX.vim',
+" \ 'XXXXXXXXXXXX.vim',
+" \ 'XXXXXXXX.vim',
+" \ 'XXXXXXX.vim',
+" \ 'XX.vim'
+" \ ]
 
+for f in g:config_file_list
+    execute 'source ' . g:nvim_config_root . '/' . f
+endfor
+
+" Remap <C-e> to open nerdTree plugin
+map <C-e> :NERDTreeToggle<CR>
