@@ -27,8 +27,8 @@ set number
 " Number of lines offset when jumping
 set scrolloff=2
 
-" Tab key enters 2 spaces
-set expandtab tabstop=2 shiftwidth=2 softtabstop=2
+" Tab key enters 4 spaces
+set expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 " Indent new line the same as the preceding line
 set autoindent
@@ -119,7 +119,6 @@ nnoremap Y y$
 set undofile
 
 " Set nvim config path and load your .vim scripts/files
-" https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/
 let g:nvim_config_root = stdpath('config')
 let g:config_file_list = ['pluginCall.vim']
 " \ 'XXXXXXX.vim',
@@ -135,3 +134,48 @@ endfor
 
 " Remap <C-e> to open nerdTree plugin
 map <C-e> :NERDTreeToggle<CR>
+
+" BEGIN - Rainbow Paren Pluggin
+" :RainbowParenthesesToggle       " Toggle it on/off
+" :RainbowParenthesesLoadRound    " (), the default when toggling
+" :RainbowParenthesesLoadSquare   " []
+" :RainbowParenthesesLoadBraces   " {}
+" :RainbowParenthesesLoadChevrons " <>
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+" END - Rainbow Paren Pluggin
+
+" BEGIN - Haskell Syntax Pluggin
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+
+let g:haskell_indent_if = 3
+let g:haskell_indent_case = 2
+let g:haskell_indent_let = 4
+let g:haskell_indent_where = 6
+let g:haskell_indent_before_where = 2
+let g:haskell_indent_after_bare_where = 2
+let g:haskell_indent_do = 3
+let g:haskell_indent_in = 1
+let g:haskell_indent_guard = 2
+let g:haskell_indent_case_alternative = 1
+" END - Haskell Syntax Pluggin
+
+" If you have vim >=8.0 or Neovim >= 0.1.5
+if (has("termguicolors"))
+ set termguicolors
+endif
+
+" Theme
+" syntax enable
+" colorscheme tender
+
+
