@@ -9,6 +9,8 @@ Plug 'tomlion/vim-solidity'
 Plug 'kien/rainbow_parentheses.vim'
 " Syntax for haskell language
 Plug 'neovimhaskell/haskell-vim'
-" Color scheme
+" Color scheme, not in use!
 Plug 'jacoborus/tender.vim'
+" Color scheme
+Plug 'victorze/foo'
 call plug#end()

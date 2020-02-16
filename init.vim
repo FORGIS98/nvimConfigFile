@@ -28,7 +28,7 @@ set number
 set scrolloff=2
 
 " Tab key enters 4 spaces
-set expandtab tabstop=4 shiftwidth=4 softtabstop=4
+set expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 " Indent new line the same as the preceding line
 set autoindent
@@ -175,7 +175,7 @@ if (has("termguicolors"))
 endif
 
 " Theme
-" syntax enable
-" colorscheme tender
+colorscheme hyper
 
-
+" File type detection ON
+filetype on
