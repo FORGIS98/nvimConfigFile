@@ -13,4 +13,6 @@ Plug 'neovimhaskell/haskell-vim'
 Plug 'jacoborus/tender.vim'
 " Color scheme
 Plug 'victorze/foo'
+" Format Code (beautifier)
+Plug 'sbdchd/neoformat'
 call plug#end()
