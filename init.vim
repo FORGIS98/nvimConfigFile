@@ -10,6 +10,9 @@ set modelines=0
 " Reload files changed outside of nvim
 set autoread
 
+" Plugins
+filetype plugin on
+
 " Encoding
 set encoding=utf-8
 set fenc=utf-8
@@ -22,7 +25,7 @@ set noswapfile
 
 " Line number and distance
 set relativenumber
-set number
+" set number
 
 " Number of lines offset when jumping
 set scrolloff=2
@@ -33,15 +36,19 @@ set expandtab tabstop=2 shiftwidth=2 softtabstop=2
 " Indent new line the same as the preceding line
 set autoindent
 
+" Don't want to see the status line, vim-airline will do it
+set noshowmode
 " Status line indicates insert or normal mode
-set showmode showcmd
+" set showmode showcmd
+" Using vim-airline plug
+let g:airline_theme='simple'
 
 " Highlight matching parens, braces, brackets...
 set showmatch
 
 " TODO: Make this look pretty
 " Show current line
-" set cursorline
+set cursorline
 " highlight cursorline ctermbg=black
 " autocmd InsertEnter * highlight  cursorline ctermbg=17 ctermfg=None
 " autocmd InsertLeave * highlight  cursorline ctermbg=None ctermfg=None
@@ -51,9 +58,6 @@ set ruler
 
 " Syntax color
 syntax enable
-
-" Background color
-set background=dark
 
 " Set colors if TERM have colors
 if $TERM == "termite"
@@ -118,6 +122,10 @@ nnoremap Y y$
 " Undo even after you close a file. 
 set undofile
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Set nvim config path and load your .vim scripts/files
 let g:nvim_config_root = stdpath('config')
 let g:config_file_list = ['pluginCall.vim']
@@ -174,10 +182,34 @@ if (has("termguicolors"))
  set termguicolors
 endif
 
-" Theme
-colorscheme hyper
-
 " File type detection ON
 filetype on
 
+" Theme
+colorscheme gruvbox
+set bg=dark
 
+" Background color
+set background=dark
+
+" Para que si una linea es muy grande y no cabe en la panralla no me muestre @@@
+set display+=lastline
+
+" We want youCompleteMe plugin to close buffers with info after insert mode
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" Emmet plug for html and css coding
+" let g:user_emmet_install_global = 0
+" instead of <Ctrl + y ,> now I use <,,>
+let g:user_emmet_leader_key=','
+autocmd FileType html,css,ejs EmmetInstall
+
+" css autocomplete no plugin
+set omnifunc=syntaxcomplete#Complete
+
+" Save fold and unfold code
+augroup remember_folds
+  autocmd!
+  au BufWinLeave ?* mkview 1
+  au BufWinEnter ?* silent! loadview 1
+augroup END

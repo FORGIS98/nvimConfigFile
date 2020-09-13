@@ -29,4 +29,16 @@ Plug 'udalov/kotlin-vim'
 Plug 'valloric/youcompleteme'
 " JavaScript Sytnax
 Plug 'pangloss/vim-javascript'
+" Status bar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" html and css code
+Plug 'mattn/emmet-vim'
+Plug 'hail2u/vim-css3-syntax'
+" Show colors preview in css
+Plug 'gko/vim-coloresque'
+" Discord
+Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'}
+" RDF for Vim
+Plug 'niklasl/vim-rdf'
 call plug#end()
