@@ -30,7 +30,7 @@ set relativenumber
 " Number of lines offset when jumping
 set scrolloff=2
 
-" Tab key enters 4 spaces
+" Tab key enters 2 spaces
 set expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 " Indent new line the same as the preceding line
@@ -213,3 +213,6 @@ augroup remember_folds
   au BufWinLeave ?* mkview 1
   au BufWinEnter ?* silent! loadview 1
 augroup END
+
+" repe pero es que no me hace caso :(
+set expandtab tabstop=2 shiftwidth=2 softtabstop=2
